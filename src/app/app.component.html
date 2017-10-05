@@ -1,0 +1,39 @@
+<div id="hello"></div>
+<div class="container" *ngIf="showlogin">
+
+
+    <div class="alert" *ngIf="value" (click)="hideall()">
+
+        Invalid Username or Password<span style="float:right" class="closebtn">&times;</span>
+
+    </div>
+
+    <img id="image" src="http://localhost:4200/assets/images/Sony_Music_Entertainment.png" alt="Sony music logo">
+    <section id="content">
+        <form>
+            <h1>SME CloudOps</h1>
+            <div>
+                <input type="text" placeholder="Username" id="username" name="uname" [(ngModel)]="cred.name" (click)="resetme()" />
+            </div>
+            <div>
+                <input type="password" placeholder="Password" id="password" name="pword" [(ngModel)]="cred.pword" (click)="resetme1()" />
+            </div>
+            <div>
+                <button value="Log in" (click)="logme()" class="login">Log In</button>
+            </div>
+        </form>
+        <div class="button">
+            <a></a>
+        </div>
+    </section>
+</div>
+
+
+
+<div *ngIf="showdashboard">
+    <main [class.menu-collapsed]="isMenuCollapsed" baThemeRun>
+        <div class="additional-bg"></div>
+        <router-outlet></router-outlet>
+    </main>
+
+</div>

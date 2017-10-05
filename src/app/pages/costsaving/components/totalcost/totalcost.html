@@ -1,0 +1,43 @@
+<div class="alert" *ngIf="value1" (click)="hideall()">
+
+    Your Session has been expired! Click me to Log In
+    <span class="closebtn">&times;</span>
+</div>
+<div *ngIf="displayTable" id="tableme">
+
+    <div>
+
+
+        <label class="labelme" for="sec">Account Name: </label>
+        <input list="sec" id="first" name="accountName" [(ngModel)]="para.AccName" placeholder="Select/Enter Account Name" (click)="reset()">
+        <datalist id="sec">
+            <option  *ngFor="let item of accountName" >{{item}}</option>
+        </datalist> &emsp; &emsp;
+        <label class="labelme" for="sec">Region Name: </label>
+        <input list="reg" id="second" name="regionName" [(ngModel)]="para.RegName" placeholder="Select/Enter Region Name" (click)="reset2()">
+        <datalist id="reg">
+            <option *ngFor="let item of regionName">{{item}}</option>
+        </datalist> &emsp;
+
+        <button class="btn btn-chartjs" (click)="getdata()">Go</button>
+
+
+
+
+    </div>
+
+
+    <div id="canme" *ngIf="display">
+
+        <div id="alertmeagain" *ngIf="value" (click)="hideonce()">
+            <alert type="danger">
+                <div id="crossdiv">
+                    <i id="cross" class="fa fa-window-close" aria-hidden="true"></i>
+                </div>
+                <label style="display:block; color:black">All the values for {{barChartLabels }} are zero</label>
+            </alert>
+        </div>
+        &emsp;
+        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType"></canvas>
+    </div>
+</div>

@@ -1,0 +1,5 @@
+<!--select ImageId,Date,AccountName,RegionName  from ami_audit-->
+<div *ngIf="displayTable" id="tableme">
+    <table datatable [dtOptions]="dtOptions" class="row-border  hover nowrap cell-border stripe table2"></table>
+</div>
+<p class="refresh">Last Refresh Time: {{update_time}}</p>
